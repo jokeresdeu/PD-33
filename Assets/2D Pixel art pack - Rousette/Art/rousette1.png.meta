@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 21300000
-    second: rousette1_0
+    second: Liana
   - first:
       213: 21300002
     second: rousette1_1
@@ -16,7 +16,7 @@ TextureImporter:
     second: rousette1_3
   - first:
       213: 21300008
-    second: rousette1_4
+    second: Block_TOp
   - first:
       213: 21300010
     second: rousette1_5
@@ -92,6 +92,96 @@ TextureImporter:
   - first:
       213: 21300058
     second: rousette1_29
+  - first:
+      213: -2258198929797214585
+    second: Liana
+  - first:
+      213: -2115284935669362688
+    second: rousette1_1
+  - first:
+      213: 7606622500114046061
+    second: rousette1_2
+  - first:
+      213: -6765861086678676531
+    second: rousette1_3
+  - first:
+      213: -6417563792954664254
+    second: Block_TOp
+  - first:
+      213: -5672992397246771631
+    second: rousette1_5
+  - first:
+      213: -4036155062528121432
+    second: rousette1_6
+  - first:
+      213: -6720542545773023969
+    second: rousette1_7
+  - first:
+      213: -8044983067584848556
+    second: rousette1_8
+  - first:
+      213: -5269989719887678661
+    second: rousette1_9
+  - first:
+      213: -1135195404856785989
+    second: rousette1_10
+  - first:
+      213: -2554053661961675640
+    second: rousette1_11
+  - first:
+      213: -123281738003782695
+    second: rousette1_12
+  - first:
+      213: -5208186453123000464
+    second: rousette1_13
+  - first:
+      213: -5801598968537420085
+    second: rousette1_14
+  - first:
+      213: -754256032656885548
+    second: rousette1_15
+  - first:
+      213: 789766511222761965
+    second: rousette1_16
+  - first:
+      213: -9193690834945385392
+    second: rousette1_17
+  - first:
+      213: -9004662885686753803
+    second: rousette1_18
+  - first:
+      213: 4519177733783709157
+    second: rousette1_19
+  - first:
+      213: -5965186138700599118
+    second: rousette1_20
+  - first:
+      213: 3422379998411503706
+    second: rousette1_21
+  - first:
+      213: 8863690370880482315
+    second: rousette1_22
+  - first:
+      213: -6537540940049670159
+    second: rousette1_23
+  - first:
+      213: -826490024741367026
+    second: rousette1_24
+  - first:
+      213: 7924904443897717278
+    second: rousette1_25
+  - first:
+      213: -4952754129057786111
+    second: rousette1_26
+  - first:
+      213: 4638082236502082704
+    second: rousette1_27
+  - first:
+      213: 7792048241692337114
+    second: rousette1_28
+  - first:
+      213: 8940953694002566074
+    second: rousette1_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -135,7 +225,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -160,7 +250,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -172,7 +262,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
@@ -184,18 +274,18 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rousette1_0
+      name: Liana
       rect:
         serializedVersion: 2
         x: 155
-        y: 2381
+        y: 2385
         width: 638
-        height: 1711
+        height: 1707
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +293,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe3794b18c7f7d346971d0454eb3677c
-      internalID: 21300000
+      spriteID: 78e054da90449a0e0800000000000000
+      internalID: -2258198929797214585
       vertices: []
       indices: 
       edges: []
@@ -215,8 +305,8 @@ TextureImporter:
         serializedVersion: 2
         x: 970
         y: 3649
-        width: 1253
-        height: 609
+        width: 1248
+        height: 607
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +314,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ad81f873e36d0c47b6aa4a50d97faaa
-      internalID: 21300002
+      spriteID: 00051baee8ff4a2e0800000000000000
+      internalID: -2115284935669362688
       vertices: []
       indices: 
       edges: []
@@ -234,10 +324,10 @@ TextureImporter:
       name: rousette1_2
       rect:
         serializedVersion: 2
-        x: 2419
+        x: 2421
         y: 3726
-        width: 611
-        height: 402
+        width: 609
+        height: 399
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,8 +335,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38e69839cc7f49247a9b5b89cc74e858
-      internalID: 21300004
+      spriteID: d6c9acbbcd6209960800000000000000
+      internalID: 7606622500114046061
       vertices: []
       indices: 
       edges: []
@@ -255,10 +345,10 @@ TextureImporter:
       name: rousette1_3
       rect:
         serializedVersion: 2
-        x: 3168
+        x: 3170
         y: 3408
-        width: 644
-        height: 1028
+        width: 636
+        height: 1027
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,14 +356,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c84c64790fc55cf4794f0e3ebc75cb69
-      internalID: 21300006
+      spriteID: dcb01e05035da12a0800000000000000
+      internalID: -6765861086678676531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rousette1_4
+      name: Block_TOp
       rect:
         serializedVersion: 2
         x: 968
@@ -287,8 +377,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b08a8f4ab4b80c64c8c65d8f155b3032
-      internalID: 21300008
+      spriteID: 2ca57856bbb30f6a0800000000000000
+      internalID: -6417563792954664254
       vertices: []
       indices: 
       edges: []
@@ -298,9 +388,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1351
-        y: 3147
-        width: 264
-        height: 261
+        y: 3146
+        width: 262
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +398,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee9988722e7a1934d8ac522e21d84da1
-      internalID: 21300010
+      spriteID: 15e4d94b87b7541b0800000000000000
+      internalID: -5672992397246771631
       vertices: []
       indices: 
       edges: []
@@ -318,10 +408,10 @@ TextureImporter:
       name: rousette1_6
       rect:
         serializedVersion: 2
-        x: 1736
+        x: 1741
         y: 3144
         width: 262
-        height: 264
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,8 +419,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9a6659e226acd74da62c26e7764edd1
-      internalID: 21300012
+      spriteID: 8a5ed97ea52bcf7c0800000000000000
+      internalID: -4036155062528121432
       vertices: []
       indices: 
       edges: []
@@ -350,8 +440,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79c72363bc6f8a2409533d77fe81293e
-      internalID: 21300014
+      spriteID: f1dac4d5926dbb2a0800000000000000
+      internalID: -6720542545773023969
       vertices: []
       indices: 
       edges: []
@@ -371,8 +461,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 444dd5abc366b67439c50bc61dee79bd
-      internalID: 21300016
+      spriteID: 45d9290368a7a5090800000000000000
+      internalID: -8044983067584848556
       vertices: []
       indices: 
       edges: []
@@ -392,8 +482,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bc048e4c8fe7964fa4cb03c036841ca
-      internalID: 21300018
+      spriteID: b337228754c3dd6b0800000000000000
+      internalID: -5269989719887678661
       vertices: []
       indices: 
       edges: []
@@ -404,7 +494,7 @@ TextureImporter:
         serializedVersion: 2
         x: 4558
         y: 2395
-        width: 132
+        width: 130
         height: 1260
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -413,8 +503,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 106fe38ebdad34f4d9c1db396e270de6
-      internalID: 21300020
+      spriteID: bb30bd63bc9fe30f0800000000000000
+      internalID: -1135195404856785989
       vertices: []
       indices: 
       edges: []
@@ -434,8 +524,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81cf6f294ec2979408087e052a27f5d9
-      internalID: 21300022
+      spriteID: 88c1d75f9bd2e8cd0800000000000000
+      internalID: -2554053661961675640
       vertices: []
       indices: 
       edges: []
@@ -455,8 +545,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d68deff2ed63e940af63879ff62ad26
-      internalID: 21300024
+      spriteID: 9d3edf699e30a4ef0800000000000000
+      internalID: -123281738003782695
       vertices: []
       indices: 
       edges: []
@@ -476,8 +566,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eccef42bf7673ce4f8ccc32a55cd8bbe
-      internalID: 21300026
+      spriteID: 0771a99d30ec8b7b0800000000000000
+      internalID: -5208186453123000464
       vertices: []
       indices: 
       edges: []
@@ -497,8 +587,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1b0213bd09c12648831fb786097c79a
-      internalID: 21300028
+      spriteID: bceed0fe9749c7fa0800000000000000
+      internalID: -5801598968537420085
       vertices: []
       indices: 
       edges: []
@@ -510,7 +600,7 @@ TextureImporter:
         x: 2612
         y: 2339
         width: 262
-        height: 518
+        height: 516
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,8 +608,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d717a74edf19dd489609c1c6449e14a
-      internalID: 21300030
+      spriteID: 4d87acf62285885f0800000000000000
+      internalID: -754256032656885548
       vertices: []
       indices: 
       edges: []
@@ -539,8 +629,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2732fdd2325ce243bd2d3dc78a5bf28
-      internalID: 21300032
+      spriteID: de9aee42570d5fa00800000000000000
+      internalID: 789766511222761965
       vertices: []
       indices: 
       edges: []
@@ -550,9 +640,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3404
-        y: 2418
-        width: 90
-        height: 350
+        y: 2423
+        width: 86
+        height: 345
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,8 +650,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fac03bc2a1fd8654bb616a3a1a37fbd5
-      internalID: 21300034
+      spriteID: 05cd05855e2796080800000000000000
+      internalID: -9193690834945385392
       vertices: []
       indices: 
       edges: []
@@ -570,10 +660,10 @@ TextureImporter:
       name: rousette1_18
       rect:
         serializedVersion: 2
-        x: 3661
+        x: 3662
         y: 2425
-        width: 89
-        height: 638
+        width: 88
+        height: 633
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -581,8 +671,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8728c35a2f9629c4196eecfb9c96013c
-      internalID: 21300036
+      spriteID: 5f54f7070d2090380800000000000000
+      internalID: -9004662885686753803
       vertices: []
       indices: 
       edges: []
@@ -602,8 +692,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d446998d8afd2542ae1326b43d893d2
-      internalID: 21300038
+      spriteID: 5e5680b843857be30800000000000000
+      internalID: 4519177733783709157
       vertices: []
       indices: 
       edges: []
@@ -613,9 +703,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4322
-        y: 2382
+        y: 2388
         width: 95
-        height: 638
+        height: 632
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -623,8 +713,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d620996c9670da244a76f8d57f7026c4
-      internalID: 21300040
+      spriteID: 2b0baafcfc6673da0800000000000000
+      internalID: -5965186138700599118
       vertices: []
       indices: 
       edges: []
@@ -644,8 +734,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9aedd28ca6cdcc4fbeb828c5df93467
-      internalID: 21300042
+      spriteID: a5838bbd97cbe7f20800000000000000
+      internalID: 3422379998411503706
       vertices: []
       indices: 
       edges: []
@@ -665,8 +755,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a3ab389ca677a546bb087a490ae04d4
-      internalID: 21300044
+      spriteID: b0ca1633e67220b70800000000000000
+      internalID: 8863690370880482315
       vertices: []
       indices: 
       edges: []
@@ -686,8 +776,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a43a55857e2997458e85cd710acbe8a
-      internalID: 21300046
+      spriteID: 1ff14c3072df545a0800000000000000
+      internalID: -6537540940049670159
       vertices: []
       indices: 
       edges: []
@@ -707,8 +797,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 269cd04d80e93bd45ac8091251d3badd
-      internalID: 21300048
+      spriteID: e0313e093b7b784f0800000000000000
+      internalID: -826490024741367026
       vertices: []
       indices: 
       edges: []
@@ -728,8 +818,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bbaddfba05bb244594fcd5288af2550
-      internalID: 21300050
+      spriteID: e1220719a9aeafd60800000000000000
+      internalID: 7924904443897717278
       vertices: []
       indices: 
       edges: []
@@ -738,9 +828,9 @@ TextureImporter:
       name: rousette1_26
       rect:
         serializedVersion: 2
-        x: 1832
+        x: 1831
         y: 1472
-        width: 1039
+        width: 1040
         height: 675
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -749,8 +839,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04e564b32acb8484981efe301be77d3f
-      internalID: 21300052
+      spriteID: 10759a54c58444bb0800000000000000
+      internalID: -4952754129057786111
       vertices: []
       indices: 
       edges: []
@@ -759,9 +849,9 @@ TextureImporter:
       name: rousette1_27
       rect:
         serializedVersion: 2
-        x: 3176
+        x: 3180
         y: 1306
-        width: 1017
+        width: 1013
         height: 965
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -770,8 +860,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0bbedab59c5ec74484374c5faeeb84e
-      internalID: 21300054
+      spriteID: 09481c17837cd5040800000000000000
+      internalID: 4638082236502082704
       vertices: []
       indices: 
       edges: []
@@ -791,8 +881,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: decb5422fefdd5a4ca7ed997e12a8f3d
-      internalID: 21300056
+      spriteID: ad367ce779ae22c60800000000000000
+      internalID: 7792048241692337114
       vertices: []
       indices: 
       edges: []
@@ -801,10 +891,10 @@ TextureImporter:
       name: rousette1_29
       rect:
         serializedVersion: 2
-        x: 2570
-        y: 141
-        width: 927
-        height: 1072
+        x: 2573
+        y: 144
+        width: 924
+        height: 1069
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -812,8 +902,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4455e722f84219e4292d4b8ed3e95021
-      internalID: 21300058
+      spriteID: ab35d347306a41c70800000000000000
+      internalID: 8940953694002566074
       vertices: []
       indices: 
       edges: []
