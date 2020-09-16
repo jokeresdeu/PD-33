@@ -16,8 +16,8 @@ TagManager:
   - Ground
   - Player
   - Item
-  - 
-  - 
+  - Traps
+  - Projectiles
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Traps
+    uniqueID: 646066625
     locked: 0
   - name: Player
     uniqueID: 3333244783

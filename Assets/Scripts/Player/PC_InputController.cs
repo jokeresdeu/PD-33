@@ -17,6 +17,11 @@ public class PC_InputController : MonoBehaviour
         {
             _jump = true;
         }
+
+        if(Input.GetKeyUp(KeyCode.E))
+        {
+            _playerMovement.StartCasting();
+        }
     }
 
     private void FixedUpdate()

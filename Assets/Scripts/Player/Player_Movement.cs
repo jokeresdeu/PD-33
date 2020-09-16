@@ -24,33 +24,21 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] Transform _cellCheck;
     [SerializeField] Collider2D _headCollider;
 
+    [Header("Atack")]
+    [SerializeField] private GameObject _fireBall;
+    [SerializeField] private Transform _muzzle;
 
-    private int _jumpCounter;
+    private bool _secondJump;
     private bool _grounded;
     private bool _canStand;
     private bool _faceRight = true;
+    private bool _casting;
 
     // Start is called before the first frame update
     private void Awake()
     {
         _playerRb = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
-    }
-
-    void FixedUpdate()
-    {
-        _canStand = !Physics2D.OverlapCircle(_cellCheck.position, _radius, _whatIsGround);
-
-        if(Physics2D.OverlapCircle(_groundCheck.position, _radius, _whatIsGround))
-        {
-            _grounded = true;
-            _jumpCounter = 0;
-        }
-        else
-        {
-            _grounded = false;
-        }
-        
     }
 
     private void OnDrawGizmos()
@@ -82,15 +70,31 @@ public class Player_Movement : MonoBehaviour
         #endregion
 
         #region Jumping
-       
-        if (jump && (_grounded|| _jumpCounter<2)) 
+        if (Physics2D.OverlapCircle(_groundCheck.position, _radius, _whatIsGround))
         {
-            _jumpCounter++;
-            _playerRb.AddForce(Vector2.up * _jumpForce);
+            _grounded = true;
+            _secondJump = true;
+        }
+        else
+        {
+            _grounded = false;
+        }
+
+        if (jump) 
+        {
+            if(_grounded)
+                _playerRb.velocity = new Vector2(_playerRb.velocity.x, _jumpForce);
+            else if(_secondJump)
+            {
+                _playerRb.velocity = new Vector2(_playerRb.velocity.x, _jumpForce);
+                _secondJump = false;
+            }
         }
         #endregion
 
         #region Crawling
+        _canStand = !Physics2D.OverlapCircle(_cellCheck.position, _radius, _whatIsGround);
+
         if (crawling && _headCollider.enabled)
         {
             _headCollider.enabled = false;
@@ -106,6 +110,23 @@ public class Player_Movement : MonoBehaviour
         _playerAnimator.SetBool("Crawl", !_headCollider.enabled);
         _playerAnimator.SetFloat("Speed", Mathf.Abs(move));
         #endregion 
+    }
+
+    public void StartCasting()
+    {
+        if (_casting)
+            return;
+        _casting = true;
+        _playerAnimator.SetBool("Cast", true);
+    }
+
+    public void Cast()
+    {
+        GameObject fireBall = Instantiate(_fireBall, _muzzle);
+        fireBall.GetComponent<Rigidbody2D>().velocity = transform.right * 5;
+        fireBall.GetComponent<SpriteRenderer>().flipX = transform.rotation.y == 1 ? true : false;
+        _casting = false;
+        _playerAnimator.SetBool("Cast", false);
     }
 
     void Flip()
