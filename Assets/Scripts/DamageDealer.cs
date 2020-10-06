@@ -7,33 +7,31 @@ public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private int _damage;
     [SerializeField] private float _timeDelay;
+    private Player_controller _player;
     private DateTime _lastEncounter;
-    private PlayerController _player;
 
     private void OnTriggerEnter2D(Collider2D info)
     {
-        if((DateTime.Now - _lastEncounter).TotalSeconds < 0.02f)
-        {
+        if ((DateTime.Now - _lastEncounter).TotalSeconds < _timeDelay/2)
             return;
-        }
+
         _lastEncounter = DateTime.Now;
-        _player = info.GetComponent<PlayerController>();
+        _player = info.GetComponent<Player_controller>();
         if (_player != null)
-            _player.ChangeHP(-_damage);
+            _player.ChangeHp(-_damage);
     }
 
     private void OnTriggerExit2D(Collider2D info)
     {
-        if (_player == info.GetComponent<PlayerController>())
+        if(_player == info.GetComponent<Player_controller>())
             _player = null; 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(_player!=null && (DateTime.Now - _lastEncounter).TotalSeconds > _timeDelay)
+        if(_player != null && (DateTime.Now - _lastEncounter).TotalSeconds > _timeDelay)
         {
-            _player.ChangeHP(-_damage);
+            _player.ChangeHp(-_damage);
             _lastEncounter = DateTime.Now;
         }
     }

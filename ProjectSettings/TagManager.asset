@@ -15,10 +15,10 @@ TagManager:
   - 
   - Ground
   - Player
-  - Item
-  - Traps
-  - Projectiles
-  - 
+  - Items
+  - Enemies
+  - PlayerProjectiles
+  - EnemyProjectile
   - 
   - 
   - 
@@ -39,14 +39,20 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 3616101303
+    uniqueID: 3949811103
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Traps
-    uniqueID: 646066625
+    uniqueID: 1701636305
+    locked: 0
+  - name: Ground
+    uniqueID: 1805082419
+    locked: 0
+  - name: Enemies
+    uniqueID: 3218084281
     locked: 0
   - name: Player
-    uniqueID: 3333244783
+    uniqueID: 2122356659
     locked: 0
