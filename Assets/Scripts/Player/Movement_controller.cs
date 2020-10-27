@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class Movement_controller : MonoBehaviour
 {
+    public event Action<bool> OnGetHurt = delegate { };
+
     private Rigidbody2D _playerRB;
     private Animator _playerAnimator;
     private Player_controller _playerController;
@@ -47,19 +50,32 @@ public class Movement_controller : MonoBehaviour
 
     [Header("PowerStrike")]
     [SerializeField] private float _chargeTime;
-    public float ChargeTime => _chargeTime;
     [SerializeField] private float _powerStrikeSpeed;
     [SerializeField] private Collider2D _strikeCollider;
     [SerializeField] private int _powerStrikeDamage;
     [SerializeField] private int _powerStrikeCost;
-    private List<EnemiesController> _damagedEnemies = new List<EnemiesController>();
+    [SerializeField] private float _pushForce;
 
+    private float _lastHurtTime;
 
-    void Start()
+    private List<EnemyControllerBase> _damagedEnemies = new List<EnemyControllerBase>();
+
+    public float ChargeTime => _chargeTime;
+
+    #region UnityMethods
+    private void Start()
     {
         _playerRB = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
         _playerController = GetComponent<Player_controller>();
+    }
+
+    private void FixedUpdate()
+    {
+        _grounded = Physics2D.OverlapCircle(_groundCheck.position, _radius, _whatIsGround);
+
+        if (_playerAnimator.GetBool("Hurt") && _grounded && Time.time - _lastHurtTime > 0.5f)
+            EndHurt();
     }
 
     private void OnDrawGizmos()
@@ -78,21 +94,17 @@ public class Movement_controller : MonoBehaviour
             return;
         }
 
-        EnemiesController enemy = collision.collider.GetComponent<EnemiesController>();
+        EnemyControllerBase enemy = collision.collider.GetComponent<EnemyControllerBase>();
         if (enemy == null || _damagedEnemies.Contains(enemy))
             return;
 
-        enemy.TakeDamage(_powerStrikeDamage);
+        enemy.TakeDamage(_powerStrikeDamage, DamageType.PowerStrike);
         _damagedEnemies.Add(enemy);
     }
 
+    #endregion
 
-    void Flip()
-    {
-        _faceRight = !_faceRight;
-        transform.Rotate(0, 180, 0);
-    }
-
+    #region PublicMethods
     public void Move(float move, bool jump, bool crouch)
     {
         if (!_canMove)
@@ -115,7 +127,7 @@ public class Movement_controller : MonoBehaviour
         #endregion
 
         #region Jumping
-        _grounded = Physics2D.OverlapCircle(_groundCheck.position, _radius, _whatIsGround);
+        
         if (jump)
         {
             if (_grounded)
@@ -150,13 +162,65 @@ public class Movement_controller : MonoBehaviour
         #endregion 
     }
 
-
     public void StartCasting()
     {
         if (_isCasting || !_playerController.ChangeMP(-_castCost))
             return;
         _isCasting = true;
         _playerAnimator.SetBool("Casting", true);
+    }
+
+    public void StartStrike(float holdTime)
+    {
+        if (_isStriking || _playerRB.velocity != Vector2.zero)
+            return;
+
+        _canMove = false;
+        if (holdTime >= _chargeTime)
+        {
+            if (!_playerController.ChangeMP(-_powerStrikeCost))
+                return;
+            _playerAnimator.SetBool("PowerStrike", true);
+
+        }
+        else
+        {
+            _playerAnimator.SetBool("Strike", true);
+        }
+
+        _isStriking = true;
+    }
+
+    public void GetHurt(Vector2 position)
+    {
+        _lastHurtTime = Time.time;
+        _canMove = false;
+        OnGetHurt(false);
+        Vector2 pushDirection = new Vector2();
+        pushDirection.x = position.x > transform.position.x ? -1 : 1;
+        pushDirection.y = 1;
+        _playerAnimator.SetBool("Hurt", true);
+        _playerRB.AddForce(pushDirection * _pushForce, ForceMode2D.Impulse);
+    }
+    #endregion
+
+
+    #region PrivateMethods
+    private void ResetPlayer()
+    {
+        _playerAnimator.SetBool("Strike", false);
+        _playerAnimator.SetBool("PowerStrike", false);
+        _playerAnimator.SetBool("Casting", false);
+        _playerAnimator.SetBool("Hurt", false);
+        _isCasting = false;
+        _isStriking = false;
+        _canMove = true;
+    }
+
+    private void Flip()
+    {
+        _faceRight = !_faceRight;
+        transform.Rotate(0, 180, 0);
     }
 
     private void CastFire()
@@ -172,26 +236,11 @@ public class Movement_controller : MonoBehaviour
         _isCasting = false;
         _playerAnimator.SetBool("Casting", false);
     }
-
-    public void StartStrike(float holdTime)
+    
+    private void EndHurt()
     {
-        if (_isStriking || _playerRB.velocity != Vector2.zero)
-            return;
-
-        _canMove = false;
-        if (holdTime >= _chargeTime)
-        {
-            if (!_playerController.ChangeMP(-_powerStrikeCost))
-                return;
-            _playerAnimator.SetBool("PowerStrike", true);
-           
-        }
-        else
-        {
-            _playerAnimator.SetBool("Strike", true);
-        }
-        
-        _isStriking = true;
+        ResetPlayer();
+        OnGetHurt(true);
     }
 
     private void StartPowerStrike()
@@ -219,8 +268,9 @@ public class Movement_controller : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(_strikePoint.position, _strikeRange, _enemies);
         for(int i =0; i<enemies.Length;i++)
         {
-           EnemiesController enemy = enemies[i].GetComponent<EnemiesController>();
-           enemy.TakeDamage(_damage);
+           EnemyControllerBase enemy = enemies[i].GetComponent<EnemyControllerBase>();
+           if(enemy!=null)
+             enemy.TakeDamage(_damage);
         }
     }
 
@@ -230,5 +280,5 @@ public class Movement_controller : MonoBehaviour
         _isStriking = false;
         _canMove = true;
     }
-   
+    #endregion 
 }

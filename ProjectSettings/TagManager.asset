@@ -19,7 +19,7 @@ TagManager:
   - Enemies
   - PlayerProjectiles
   - EnemyProjectile
-  - 
+  - LvlEnder
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2122356659
+    locked: 0
+  - name: UI
+    uniqueID: 2847190139
     locked: 0

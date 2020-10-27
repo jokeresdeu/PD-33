@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9061708409875014841}
   - component: {fileID: 4114745342857958761}
   - component: {fileID: 6211257221688842011}
-  - component: {fileID: 4519639665760202871}
+  - component: {fileID: 4145238375523522646}
   m_Layer: 13
   m_Name: BossFireBall
   m_TagString: Untagged
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4519639665760202871
+--- !u!114 &4145238375523522646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9013507344199871153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d330a10a31760e45bfa7f58e8b05f3e, type: 3}
+  m_Script: {fileID: 11500000, guid: c4c19e6ae88d27d40984d9cab9e49154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 50

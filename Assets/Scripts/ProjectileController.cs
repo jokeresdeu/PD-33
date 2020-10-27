@@ -8,9 +8,9 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D info)
     {
-        EnemiesController enemy = info.GetComponent<EnemiesController>();
+        EnemyControllerBase enemy = info.GetComponent<EnemyControllerBase>();
         if (enemy != null)
-            enemy.TakeDamage(_damage);
+            enemy.TakeDamage(_damage, DamageType.Projectile);
         Destroy(gameObject);
     }
 }
