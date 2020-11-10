@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(AudioSource))]
+[RequireComponent(typeof(Player_controller))]
 public class Movement_controller : MonoBehaviour
 {
     public event Action<bool> OnGetHurt = delegate { };
@@ -56,6 +57,12 @@ public class Movement_controller : MonoBehaviour
     [SerializeField] private int _powerStrikeCost;
     [SerializeField] private float _pushForce;
 
+    [Header("Audio")]
+    [SerializeField] private InGameSound _runClip;
+    private InGameSound _currentSound;
+    private AudioSource _audioSource;
+
+
     private float _lastHurtTime;
 
     private List<EnemyControllerBase> _damagedEnemies = new List<EnemyControllerBase>();
@@ -68,6 +75,7 @@ public class Movement_controller : MonoBehaviour
         _playerRB = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
         _playerController = GetComponent<Player_controller>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -160,6 +168,34 @@ public class Movement_controller : MonoBehaviour
         _playerAnimator.SetBool("Jump", !_grounded);
         _playerAnimator.SetBool("Crouch", !_headCollider.enabled);
         #endregion 
+
+        if (_grounded && _playerRB.velocity.x != 0 && !_audioSource.isPlaying)
+            PlayAudio(_runClip);
+        else if (!_grounded || _playerRB.velocity.x == 0)
+            StopAudio(_runClip);
+    }
+
+    public void PlayAudio(InGameSound sound)
+    {
+        if (_currentSound != null && (_currentSound == sound || _currentSound.Priority > sound.Priority))
+            return;
+
+        _currentSound = sound;
+        _audioSource.clip = _currentSound.AudioClip;
+        _audioSource.loop = _currentSound.Loop;
+        _audioSource.pitch = _currentSound.Pitch;
+        _audioSource.volume = _currentSound.Volume;
+        _audioSource.Play();
+    }
+
+    public void StopAudio(InGameSound sound)
+    {
+        if (_currentSound == null || _currentSound != sound)
+            return;
+
+        _audioSource.Stop();
+        _audioSource.clip = null;
+        _currentSound = null;
     }
 
     public void StartCasting()
@@ -202,6 +238,7 @@ public class Movement_controller : MonoBehaviour
         _playerAnimator.SetBool("Hurt", true);
         _playerRB.AddForce(pushDirection * _pushForce, ForceMode2D.Impulse);
     }
+
     #endregion
 
 

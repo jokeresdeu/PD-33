@@ -15,14 +15,54 @@ public class ServiceManager : MonoBehaviour
             Destroy(gameObject);
     }
     #endregion 
+    private void Start()
+    {
+        Time.timeScale = 1;
 
+        if(SceneManager.GetActiveScene().buildIndex!=0)
+        {
+            PlayerPrefs.SetInt(GamePrefs.LastPlayedLvl.ToString(), SceneManager.GetActiveScene().buildIndex);
+            PlayerPrefs.SetInt(GamePrefs.LvlPlayed.ToString() + SceneManager.GetActiveScene().buildIndex, 1);
+        }
+    }
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ChangeLvl(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void EndLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        ChangeLvl(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ChangeLvl(int  lvl)
+    {
+        SceneManager.LoadScene(lvl);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+        Debug.Log("Quit");
+    }
+
+    public void ResetProgres()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }
+
+public enum Scenes
+{
+    MainMenu,
+    first,
+    second,
+    third,
+}
+
+public enum GamePrefs
+{
+    LastPlayedLvl,
+    LvlPlayed,
+}
+

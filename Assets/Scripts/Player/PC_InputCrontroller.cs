@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Movement_controller))]
 public class PC_InputCrontroller : MonoBehaviour
@@ -31,25 +32,28 @@ public class PC_InputCrontroller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.E))
             _playerMovement.StartCasting();
-        if(Input.GetButtonDown("Fire1"))
+       
+        if(!IsPointerOverUI())
         {
-            _strikeClickTime = DateTime.Now;
-            _canAtack = true;
-        }
-        if (Input.GetButtonUp("Fire1"))
-        {
-            float holdTime = (float)(DateTime.Now - _strikeClickTime).TotalSeconds;
-            if(_canAtack)
-                 _playerMovement.StartStrike(holdTime);
-            _canAtack = false;
+            if (Input.GetButtonDown("Fire1"))
+            {
+                _strikeClickTime = DateTime.Now;
+                _canAtack = true;
+            }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                float holdTime = (float)(DateTime.Now - _strikeClickTime).TotalSeconds;
+                if (_canAtack)
+                    _playerMovement.StartStrike(holdTime);
+                _canAtack = false;
+            }
         }
 
-        if((DateTime.Now - _strikeClickTime).TotalSeconds >= _playerMovement.ChargeTime * 2 && _canAtack)
+        if ((DateTime.Now - _strikeClickTime).TotalSeconds >= _playerMovement.ChargeTime * 2 && _canAtack)
         {
             _playerMovement.StartStrike(_playerMovement.ChargeTime);
             _canAtack = false;
         }
-            
     }
 
     private void FixedUpdate()
@@ -57,4 +61,6 @@ public class PC_InputCrontroller : MonoBehaviour
         _playerMovement.Move(_move, _jump, _crouch);
         _jump = false;
     }
+
+    private bool IsPointerOverUI() => EventSystem.current.IsPointerOverGameObject();
 }
